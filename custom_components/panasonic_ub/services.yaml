@@ -1,0 +1,62 @@
+remote_command:
+  name: Send Remote Command
+  description: Sends a specific remote control command to the Panasonic UB player.
+  target:
+    entity:
+      integration: panasonic_ub
+      domain: media_player
+  fields:
+    command:
+      name: Command
+      description: The remote key to simulate (e.g., NETFLIX, MENU, HOME).
+      required: true
+      selector:
+        select:
+          options:
+            - POWER_ON
+            - POWER_OFF
+            - PLAY
+            - STOP
+            - PAUSE
+            - SKIP_FWD
+            - SKIP_REV
+            - SCAN_FWD
+            - SCAN_REV
+            - OPEN_CLOSE
+            - UP
+            - DOWN
+            - LEFT
+            - RIGHT
+            - ENTER
+            - RETURN
+            - INFO
+            - HOME
+            - OPTION
+            - TOP_MENU
+            - POPUP_MENU
+            - CLEAR
+            - RED
+            - GREEN
+            - YELLOW
+            - BLUE
+            - NETFLIX
+            - INTERNET
+            - SETUP
+            - AUDIO
+            - SUBTITLE
+            - HDR_SETTING
+            - PLAYBACK_INFO
+            - CLOSED_CAPTION
+            - MANUAL_SKIP_MINUS_10
+            - MANUAL_SKIP_PLUS_60
+            - DIGIT_0
+            - DIGIT_1
+            - DIGIT_2
+            - DIGIT_3
+            - DIGIT_4
+            - DIGIT_5
+            - DIGIT_6
+            - DIGIT_7
+            - DIGIT_8
+            - DIGIT_9
+            - DOT

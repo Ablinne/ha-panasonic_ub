@@ -1,0 +1,459 @@
+panasonic_send_power_on:
+  alias: 'Panasonic UB: Power On'
+  icon: mdi:power
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: POWER_ON
+panasonic_send_power_off:
+  alias: 'Panasonic UB: Power Off'
+  icon: mdi:power-off
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: POWER_OFF
+panasonic_send_play:
+  alias: 'Panasonic UB: Play'
+  icon: mdi:play
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: PLAY
+panasonic_send_stop:
+  alias: 'Panasonic UB: Stop'
+  icon: mdi:stop
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: STOP
+panasonic_send_pause:
+  alias: 'Panasonic UB: Pause'
+  icon: mdi:pause
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: PAUSE
+panasonic_send_skip_fwd:
+  alias: 'Panasonic UB: Skip Forward'
+  icon: mdi:skip-next
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SKIP_FWD
+panasonic_send_skip_rev:
+  alias: 'Panasonic UB: Skip Reverse'
+  icon: mdi:skip-previous
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SKIP_REV
+panasonic_send_scan_fwd:
+  alias: 'Panasonic UB: Scan Forward'
+  icon: mdi:fast-forward
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SCAN_FWD
+panasonic_send_scan_rev:
+  alias: 'Panasonic UB: Scan Reverse'
+  icon: mdi:rewind
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SCAN_REV
+panasonic_send_open_close:
+  alias: 'Panasonic UB: Open/Close'
+  icon: mdi:eject
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: OPEN_CLOSE
+panasonic_send_up:
+  alias: 'Panasonic UB: Up'
+  icon: mdi:chevron-up
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: UP
+panasonic_send_down:
+  alias: 'Panasonic UB: Down'
+  icon: mdi:chevron-down
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DOWN
+panasonic_send_left:
+  alias: 'Panasonic UB: Left'
+  icon: mdi:chevron-left
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: LEFT
+panasonic_send_right:
+  alias: 'Panasonic UB: Right'
+  icon: mdi:chevron-right
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: RIGHT
+panasonic_send_enter:
+  alias: 'Panasonic UB: Enter'
+  icon: mdi:check-circle-outline
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: ENTER
+panasonic_send_return:
+  alias: 'Panasonic UB: Return'
+  icon: mdi:keyboard-return
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: RETURN
+panasonic_send_info:
+  alias: 'Panasonic UB: Info'
+  icon: mdi:information-outline
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: INFO
+panasonic_send_home:
+  alias: 'Panasonic UB: Home'
+  icon: mdi:home
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: HOME
+panasonic_send_option:
+  alias: 'Panasonic UB: Option'
+  icon: mdi:dots-horizontal
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: OPTION
+panasonic_send_top_menu:
+  alias: 'Panasonic UB: Top Menu'
+  icon: mdi:menu
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: TOP_MENU
+panasonic_send_popup_menu:
+  alias: 'Panasonic UB: Popup Menu'
+  icon: mdi:menu-open
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: POPUP_MENU
+panasonic_send_clear:
+  alias: 'Panasonic UB: Clear'
+  icon: mdi:backspace-outline
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: CLEAR
+panasonic_send_red:
+  alias: 'Panasonic UB: Red Button'
+  icon: mdi:checkbox-blank-circle
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: RED
+panasonic_send_green:
+  alias: 'Panasonic UB: Green Button'
+  icon: mdi:checkbox-blank-circle
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: GREEN
+panasonic_send_yellow:
+  alias: 'Panasonic UB: Yellow Button'
+  icon: mdi:checkbox-blank-circle
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: YELLOW
+panasonic_send_blue:
+  alias: 'Panasonic UB: Blue Button'
+  icon: mdi:checkbox-blank-circle
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: BLUE
+panasonic_send_digit_0:
+  alias: 'Panasonic UB: Digit 0'
+  icon: mdi:numeric-0
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_0
+panasonic_send_digit_1:
+  alias: 'Panasonic UB: Digit 1'
+  icon: mdi:numeric-1
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_1
+panasonic_send_digit_2:
+  alias: 'Panasonic UB: Digit 2'
+  icon: mdi:numeric-2
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_2
+panasonic_send_digit_3:
+  alias: 'Panasonic UB: Digit 3'
+  icon: mdi:numeric-3
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_3
+panasonic_send_digit_4:
+  alias: 'Panasonic UB: Digit 4'
+  icon: mdi:numeric-4
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_4
+panasonic_send_digit_5:
+  alias: 'Panasonic UB: Digit 5'
+  icon: mdi:numeric-5
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_5
+panasonic_send_digit_6:
+  alias: 'Panasonic UB: Digit 6'
+  icon: mdi:numeric-6
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_6
+panasonic_send_digit_7:
+  alias: 'Panasonic UB: Digit 7'
+  icon: mdi:numeric-7
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_7
+panasonic_send_digit_8:
+  alias: 'Panasonic UB: Digit 8'
+  icon: mdi:numeric-8
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_8
+panasonic_send_digit_9:
+  alias: 'Panasonic UB: Digit 9'
+  icon: mdi:numeric-9
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DIGIT_9
+panasonic_send_dot:
+  alias: 'Panasonic UB: Dot/Sharp'
+  icon: mdi:music-accidental-sharp
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: DOT
+panasonic_send_audio:
+  alias: 'Panasonic UB: Audio'
+  icon: mdi:audio-input-rca
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: AUDIO
+panasonic_send_subtitle:
+  alias: 'Panasonic UB: Subtitle'
+  icon: mdi:subtitles
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SUBTITLE
+panasonic_send_hdr_setting:
+  alias: 'Panasonic UB: HDR Setting'
+  icon: mdi:hdr
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: HDR_SETTING
+panasonic_send_netflix:
+  alias: 'Panasonic UB: Netflix'
+  icon: mdi:netflix
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: NETFLIX
+panasonic_send_internet:
+  alias: 'Panasonic UB: Internet'
+  icon: mdi:web
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: INTERNET
+panasonic_send_mirroring:
+  alias: 'Panasonic UB: Mirroring'
+  icon: mdi:cellphone-wireless
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: MIRRORING
+panasonic_send_setup:
+  alias: 'Panasonic UB: Setup'
+  icon: mdi:cog
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SETUP
+panasonic_send_playback_info:
+  alias: 'Panasonic UB: Playback Info'
+  icon: mdi:information-variant
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: PLAYBACK_INFO
+panasonic_send_manual_skip_minus_10:
+  alias: 'Panasonic UB: Skip -10s'
+  icon: mdi:replay
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: MANUAL_SKIP_MINUS_10
+panasonic_send_manual_skip_plus_60:
+  alias: 'Panasonic UB: Skip +60s'
+  icon: mdi:fast-forward-60
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: MANUAL_SKIP_PLUS_60
+panasonic_send_closed_caption:
+  alias: 'Panasonic UB: Closed Caption'
+  icon: mdi:closed-caption
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: CLOSED_CAPTION
+panasonic_send_picture_setting:
+  alias: 'Panasonic UB: Picture Setting'
+  icon: mdi:image-filter-hdr
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: PICTURE_SETTING
+panasonic_send_sound_effect:
+  alias: 'Panasonic UB: Sound Effect'
+  icon: mdi:surround-sound
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: SOUND_EFFECT
+panasonic_send_high_clarity:
+  alias: 'Panasonic UB: High Clarity Audio'
+  icon: mdi:music-clef-treble
+  sequence:
+  - action: panasonic_ub.remote_command
+    target:
+      entity_id: media_player.panasonic_ub820
+    data:
+      command: HIGH_CLARITY

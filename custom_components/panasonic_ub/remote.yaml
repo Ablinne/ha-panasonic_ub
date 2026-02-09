@@ -1,0 +1,707 @@
+type: vertical-stack
+cards:
+  - type: custom:button-card
+    entity: media_player.panasonic_ub820
+    name: "[[[ return entity.attributes.friendly_name ]]]"
+    show_name: true
+    show_icon: false
+    show_state: true
+    state_display: |
+      [[[ 
+        if (entity.attributes.detailed_status) {
+          // Replace underscores with spaces (e.g. "TRAY_OPEN" -> "TRAY OPEN")
+          return entity.attributes.detailed_status.replace(/_/g, " ");
+        }
+        return entity.state;
+      ]]]
+    styles:
+      card:
+        - background-color: "#121212"
+        - border: "2px solid #2C2C2C"
+        - border-bottom: none
+        - border-top-left-radius: 24px
+        - border-top-right-radius: 24px
+        - border-bottom-left-radius: 0px
+        - border-bottom-right-radius: 0px
+        - padding: 15px 0px 5px 0px
+        - box-shadow: 0 10px 30px rgba(0,0,0,0.8)
+        - margin-bottom: "-10px"
+      name:
+        - color: "#555"
+        - font-size: 10px
+        - font-weight: bold
+        - letter-spacing: 2px
+        - text-transform: uppercase
+        - margin-bottom: 5px
+      state:
+        - color: "#4CAF50"
+        - font-family: monospace
+        - font-size: 24px
+        - font-weight: bold
+        - text-transform: uppercase
+        - text-shadow: 0 0 10px rgba(76, 175, 80, 0.5)
+  - type: custom:universal-remote-card
+    title: Panasonic UB820
+    media_player_id: media_player.panasonic_ub820
+    styles: >
+      /* Main Card Background */
+
+      ha-card {
+        background-color: #121212 !important; /* Deep Black */
+        border-radius: 0px 0px 24px 24px !important; /* Rounded bottom only */
+        padding: 0px 20px 20px 20px !important;
+        border: 2px solid #2C2C2C;
+        border-top: none; /* Connect to top card */
+        box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+      }
+
+
+      .row {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        margin-bottom: 12px;
+      }
+
+
+      /* Standard Buttons - High Contrast */
+
+      remote-button {
+        background-color: #CCCCCC;
+        border-radius: 50%;
+        border: 1px solid #444;
+        transition: background-color 0.1s;
+        /* Size adjustments */
+        width: 56px;
+        height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+
+      /* Press Effect */
+
+      remote-button:active {
+        background-color: #505050 !important;
+        transform: scale(0.92);
+      }
+
+
+      #circlepad::part(circlepad) {
+        border: 5px solid #444;
+        background: radial-gradient(circle at top left, #303030 100%, #202020 15%);
+        --icon-color: rgba(128,128,128,0.5);
+      }
+
+
+      #center::part(button) {
+        background: radial-gradient(circle at top left, #303030 100%, #101010 15%);
+        border: 1px solid rgba(0, 0, 0, 0.5);
+      }
+
+      #center::part(icon) {
+        color: rgba(128,128,128, 0.8);
+        --size: 36px;
+      }
+
+
+      #power::part(icon) {
+        color: #1B5E20;
+      }
+
+
+      #power_off::part(icon) {
+        color: #B71C1C;
+      }
+
+
+      /* Color Buttons - Solid visible background with light icon */
+
+      #red { background-color: #D32F2F; border-color: #B71C1C; color: white; }
+
+      #green { background-color: #388E3C; border-color: #1B5E20; color: white; }
+
+      #yellow { background-color: #FBC02D; border-color: #F57F17; color:
+      #212121; }
+
+      #blue { background-color: #1976D2; border-color: #0D47A1; color: white; }
+
+
+      /* Branding */
+
+      #netflix { color: #E50914; border-color: #E50914; }
+    rows:
+      - - power
+        - eject
+        - power_off
+      - - pause
+        - play
+        - stop
+      - - home
+        - top_menu
+        - popup_menu
+        - info
+      - - circlepad
+      - - return
+        - option
+        - setup
+        - clear
+      - - skip_rev
+        - scan_rev
+        - scan_fwd
+        - skip_fwd
+      - - minus_10s
+        - plus_60s
+        - cc
+      - - audio
+        - subtitle
+        - playback_info
+      - - hdr
+        - picture_setting
+        - sound_effect
+        - high_clarity
+      - - netflix
+        - internet
+        - mirroring
+      - - red
+        - green
+        - yellow
+        - blue
+      - - digit_1
+        - digit_2
+        - digit_3
+      - - digit_4
+        - digit_5
+        - digit_6
+      - - digit_7
+        - digit_8
+        - digit_9
+      - - dot
+        - digit_0
+        - null
+    custom_actions:
+      - name: power
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: POWER_ON
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:power
+        type: button
+      - type: button
+        name: power_off
+        icon: mdi:power-off
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: POWER_OFF
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: eject
+        icon: mdi:eject
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: OPEN_CLOSE
+          target:
+            entity_id: media_player.panasonic_ub820
+      - name: red
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: RED
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:checkbox-blank-circle
+        type: button
+      - name: green
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: GREEN
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:checkbox-blank-circle
+        type: button
+      - name: yellow
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: YELLOW
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:checkbox-blank-circle
+        type: button
+      - name: blue
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: BLUE
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:checkbox-blank-circle
+        type: button
+      - name: home
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: HOME
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:home
+        type: button
+      - name: top_menu
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: TOP_MENU
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:menu
+        type: button
+      - type: button
+        name: popup_menu
+        icon: mdi:menu-open
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: POPUP_MENU
+          target:
+            entity_id: media_player.panasonic_ub820
+      - name: info
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: INFO
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:information-outline
+        type: button
+      - type: button
+        name: return
+        icon: mdi:keyboard-return
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: RETURN
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: option
+        icon: mdi:dots-horizontal
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: OPTION
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: setup
+        icon: mdi:cog
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SETUP
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: clear
+        icon: mdi:backspace-outline
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: CLEAR
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: circlepad
+        name: circlepad
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          target:
+            entity_id: media_player.panasonic_ub820
+          data:
+            command: ENTER
+        up:
+          icon: mdi:chevron-up
+          tap_action:
+            action: perform-action
+            perform_action: panasonic_ub.remote_command
+            data:
+              command: UP
+            target:
+              entity_id: media_player.panasonic_ub820
+          hold_action:
+            action: repeat
+        down:
+          icon: mdi:chevron-down
+          tap_action:
+            action: perform-action
+            perform_action: panasonic_ub.remote_command
+            data:
+              command: DOWN
+            target:
+              entity_id: media_player.panasonic_ub820
+          hold_action:
+            action: repeat
+        left:
+          icon: mdi:chevron-left
+          tap_action:
+            action: perform-action
+            perform_action: panasonic_ub.remote_command
+            data:
+              command: LEFT
+            target:
+              entity_id: media_player.panasonic_ub820
+          hold_action:
+            action: repeat
+        right:
+          icon: mdi:chevron-right
+          tap_action:
+            action: perform-action
+            perform_action: panasonic_ub.remote_command
+            data:
+              command: RIGHT
+            target:
+              entity_id: media_player.panasonic_ub820
+          hold_action:
+            action: repeat
+        center:
+          tap_action:
+            action: perform-action
+            perform_action: panasonic_ub.remote_command
+            data:
+              entity_id: media_player.panasonic_ub820
+              command: ENTER
+      - type: button
+        name: skip_rev
+        icon: mdi:skip-previous
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SKIP_REV
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: scan_rev
+        icon: mdi:rewind
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SCAN_REV
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: scan_fwd
+        icon: mdi:fast-forward
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SCAN_FWD
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: skip_fwd
+        icon: mdi:skip-next
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SKIP_FWD
+          target:
+            entity_id: media_player.panasonic_ub820
+      - name: play
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: PLAY
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:play-circle
+        type: button
+        styles: |
+          ha-state-icon { width: 40px; height: 40px; }
+      - name: pause
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: PAUSE
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:pause
+        type: button
+      - name: stop
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: STOP
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:stop
+        type: button
+      - type: button
+        name: audio
+        icon: mdi:audio-input-rca
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: AUDIO
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: subtitle
+        icon: mdi:subtitles
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SUBTITLE
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: playback_info
+        icon: mdi:information-variant
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: PLAYBACK_INFO
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: mirroring
+        icon: mdi:cellphone-wireless
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: MIRRORING
+          target:
+            entity_id: media_player.panasonic_ub820
+      - name: netflix
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: NETFLIX
+          target:
+            entity_id: media_player.panasonic_ub820
+        icon: mdi:netflix
+        type: button
+        styles: |
+          ha-state-icon { color: #E50914 !important; }
+      - type: button
+        name: internet
+        icon: mdi:web
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: INTERNET
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: sound_effect
+        icon: mdi:surround-sound
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: SOUND_EFFECT
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: high_clarity
+        icon: mdi:music-clef-treble
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: HIGH_CLARITY
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: minus_10s
+        icon: mdi:replay
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: MANUAL_SKIP_MINUS_10
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: plus_60s
+        icon: mdi:fast-forward-60
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: MANUAL_SKIP_PLUS_60
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: hdr
+        icon: mdi:hdr
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: HDR_SETTING
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: picture_setting
+        icon: mdi:image-filter-hdr
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: PICTURE_SETTING
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: cc
+        icon: mdi:closed-caption
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: CLOSED_CAPTION
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_0
+        icon: mdi:numeric-0-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_0
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_1
+        icon: mdi:numeric-1-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_1
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_2
+        icon: mdi:numeric-2-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_2
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_3
+        icon: mdi:numeric-3-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_3
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_4
+        icon: mdi:numeric-4-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_4
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_5
+        icon: mdi:numeric-5-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_5
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_6
+        icon: mdi:numeric-6-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_6
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_7
+        icon: mdi:numeric-7-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_7
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_8
+        icon: mdi:numeric-8-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_8
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: digit_9
+        icon: mdi:numeric-9-box
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DIGIT_9
+          target:
+            entity_id: media_player.panasonic_ub820
+      - type: button
+        name: dot
+        icon: mdi:music-accidental-sharp
+        tap_action:
+          action: perform-action
+          perform_action: panasonic_ub.remote_command
+          data:
+            command: DOT
+          target:
+            entity_id: media_player.panasonic_ub820

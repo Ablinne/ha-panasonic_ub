@@ -1,0 +1,11 @@
+{
+  "domain": "panasonic_ub",
+  "name": "Panasonic UB Blu-ray Player",
+  "documentation": "https://github.com/matteoraf/ha-panasonic_ub",
+  "dependencies": [],
+  "codeowners": [],
+  "requirements": [],
+  "version": "0.0.6",
+  "config_flow": true,
+  "iot_class": "local_polling"
+}
