@@ -42,10 +42,10 @@ class PanasonicSecureAPI:
         self._auth_enabled = auth_enabled
 
         # Validate Key Length (Strict Check)
-        if not secret_key or len(secret_key) != 32:
-            raise ValueError(
-                f"Invalid Secret Key: Must be 32 characters long. Got {len(secret_key) if secret_key else 0}."
-            )
+        # if not secret_key or len(secret_key) != 32:
+        #     raise ValueError(
+        #         f"Invalid Secret Key: Must be 32 characters long. Got {len(secret_key) if secret_key else 0}."
+        #     )
 
         self._key = secret_key
         # cAUTH_FORM is the first 2 characters of the secret key

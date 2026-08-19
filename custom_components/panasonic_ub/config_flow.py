@@ -41,7 +41,7 @@ class PanasonicUBConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 vol.Required(CONF_HOST): str,
                 vol.Optional(CONF_MAC): str,
                 vol.Optional(CONF_NAME, default=DEFAULT_NAME): str,
-                vol.Required(CONF_KEY): str,  # No default value
+                vol.Optional(CONF_KEY): str,  # No default value
                 vol.Optional(CONF_AUTH_ENABLE, default=True): bool,
                 vol.Optional(CONF_POLL_INTERVAL, default=DEFAULT_POLL_INTERVAL): int,
             }
@@ -83,7 +83,7 @@ class PanasonicUBOptionsFlowHandler(config_entries.OptionsFlow):
                 vol.Optional(
                     CONF_NAME, default=current_data.get(CONF_NAME, DEFAULT_NAME)
                 ): str,
-                vol.Required(CONF_KEY, default=current_data.get(CONF_KEY)): str,
+                vol.Optional(CONF_KEY, default=current_data.get(CONF_KEY, "")): str,
                 vol.Optional(
                     CONF_AUTH_ENABLE, default=current_data.get(CONF_AUTH_ENABLE, True)
                 ): bool,

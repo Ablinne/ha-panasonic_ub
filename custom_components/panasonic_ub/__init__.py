@@ -29,7 +29,7 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry) -> bool:
     # Extract configuration
     # Note: OptionsFlow now updates entry.data directly, so we primarily read from there.
     host = entry.data[CONF_HOST]
-    key = entry.data[CONF_KEY]
+    key = entry.data.get(CONF_KEY, "")
     mac = entry.data.get(CONF_MAC)
     auth_enable = entry.data.get(CONF_AUTH_ENABLE, True)
     poll_interval = entry.data.get(CONF_POLL_INTERVAL, DEFAULT_POLL_INTERVAL)
